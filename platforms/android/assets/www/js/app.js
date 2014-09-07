@@ -13,8 +13,13 @@ function init(){
 	delete init;
 }
 
-// All the functionality;
+// All the functionality - onDeviceReady();
 function onDeviceReady(){
+
+	// Demo Ripple ;
+	if(window.localStorage.getItem('session') === 'true'){
+		$.mobile.changePage('#pageDashboard');
+	}
 
 	// Session init ;
 	document.addEventListener('resume', onResume, false);
@@ -29,6 +34,8 @@ function onDeviceReady(){
 	function onBackKeyDown(){
 		if($.mobile.activePage.is('#pageDashboard')){
 			// Nothing action here ;
+		}else if($.mobile.activePage.is('#pageLogin')){
+			navigator.app.exitApp();
 		}else{
 			navigator.app.backHistory();
 		}
@@ -52,19 +59,26 @@ function onDeviceReady(){
 				setTimeout(function(){
 					if(data.success == 1){
 						$.mobile.loading('hide');
-						showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
+						//showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
 						$.mobile.changePage('#pageDashboard');
 						console.log(data);
 						window.localStorage.setItem('session', 'true');
 					}else{
 						$.mobile.loading('hide');
-						showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
+						//showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
 						console.log(data);
 					}
 				}, 1000);
 			}
 		});
 		return false;
+	});
+
+	// Function to logout ;
+	$('#btnLogout').on('click', function(e){
+		e.preventDefault();
+		window.localStorage.clear();
+		$.mobile.changePage('#pageLogin')
 	});
 
 }

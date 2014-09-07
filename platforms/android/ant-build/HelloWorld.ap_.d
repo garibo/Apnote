@@ -45,6 +45,11 @@ C:\www\data\localweb\Apnote\platforms\android\assets\www\spec \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\spec.html \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\apnote.css \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\apnote.min.css \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts\icomoon.eot \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts\icomoon.svg \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts\icomoon.ttf \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts\icomoon.woff \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\jquery.mobile.external-png.min.css \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\jquery.mobile.icons.min.css \

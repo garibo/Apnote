@@ -31,14 +31,71 @@
             <button class="ui-btn ui-btn-b ui-corner-all" id="btnLogin">Iniciar Sesión</button>
           </form>
         </div>
-        <div data-role="footer" class="app-footer">devs@getapnote.dev &copy; 2014</div>
+        <div data-role="footer" class="app-footer app-fixed">devs@getapnote.dev &copy; 2014</div>
       </div> <!-- /page -->
 
       <!-- Dashboard Page -->
       <div id="pageDashboard" data-role="page">
-        <div data-role="header">Dashboard</div>
-        <div role="main" class="ui-content"></div>
-        <div data-role="footer"></div>
+        <div data-role="panel" data-display="overlay" id="panelMenu" class="app-panel">
+          <ul data-role="listview">
+            <li><a href="#">Javier Díaz</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#" id="btnLogout">Cerrar Sesión</a></li>
+          </ul>
+        </div><!-- /panel -->
+        <div data-role="header" class="app-header app-dash-header app-fixed">
+          <div class="ui-grid-b">
+            <div class="ui-block-a">
+              <a href="#panelMenu" class="app-dash-btn"><span class="icon-menu2 app-icon"></span></a>
+            </div> 
+            <div class="ui-block-b"><span class="app-title">Dashboard</span></div>
+            <div class="ui-block-c">
+              <a href="#" class="app-dash-btn" style="right: 0;"><span class="icon-drawer app-icon"></span></a>
+            </div>
+          </div>
+        </div>
+        <div role="main" class="ui-content app-content">
+          
+          <ul data-role="listview">
+            <li data-role="list-divider">Proyectos en Curso</li>
+            <li>
+              <div>
+                <p>Nombre del Proyecto</p>
+                <p>Descripciòn</p>
+                <p>Fecha de creaciòn</p>
+                <p>Categoria</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p>Nombre del Proyecto</p>
+                <p>Descripciòn</p>
+                <p>Fecha de creaciòn</p>
+                <p>Categoria</p>
+              </div>
+            </li>
+            <li data-role="list-divider">Proyectos Nuevos</li>
+            <li>
+              <div>
+                <p>Nombre del Proyecto</p>
+                <p>Descripciòn</p>
+                <p>Fecha de creaciòn</p>
+                <p>Categoria</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p>Nombre del Proyecto</p>
+                <p>Descripciòn</p>
+                <p>Fecha de creaciòn</p>
+                <p>Categoria</p>
+              </div>
+            </li>
+          </ol><!-- /listview -->
+
+        </div>
       </div> <!-- /page -->
 
     </div>

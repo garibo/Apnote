@@ -1,0 +1,48 @@
+
+@import url(../framework/jquery.mobile.min.css);
+@import url(../framework/jquery.mobile.theme.min.css);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/* General Classes */
+
+body{
+	font-family: 'Lato', sans-serif !important;
+}
+
+input, h1, h2, h3, h4, h5, h6, p {
+	font-family: 'Lato', sans-serif !important;
+}
+
+label {
+	margin: 0 0 0.6em !important;
+}
+
+/* Personal Classes / app abbreviation */
+
+.app-logo{
+	width: 60%;
+	margin: 5em 0 1em;
+}
+
+.app-header, .app-footer{
+	padding: 10px 0 10px;
+}
+
+.app-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 10px;
+}
+
+/* Modified Classes jQuery Mobile */
+
+.ui-page-theme-a .ui-focus, .ui-shadow-inset, .ui-btn.ui-btn-b:focus {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.ui-loader-default {
+	margin-top: 6.5em;}

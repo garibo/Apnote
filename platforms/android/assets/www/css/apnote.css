@@ -1,0 +1,25 @@
+
+@import url(../framework/jquery.mobile.min.css);
+@import url(../framework/jquery.mobile.theme.min.css);
+
+/* Personal Classes / app abbreviation */
+
+label {
+	margin: 0 0 0.6em !important;
+}
+
+.app-logo{
+	width: 60%;
+	margin: 5em 0 1em;
+}
+
+.app-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 0 10px;
+	text-align: center;
+	font-size: 10px;
+}
+
+/* Modified Classes jQuery Mobile */

@@ -267,6 +267,7 @@ C:\www\data\localweb\Apnote\platforms\android\assets\www\img\logo_large.png \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\js\app.js \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\js\app.min.js \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\js\jquery.min.js \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\js\zepto.min.js \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\plugins\org.apache.cordova.camera \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\plugins\org.apache.cordova.dialogs \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\plugins\org.apache.cordova.file \

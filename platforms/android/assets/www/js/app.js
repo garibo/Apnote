@@ -21,7 +21,7 @@ function onDeviceReady(){
 		$.mobile.changePage('#pageDashboard');
 	}
 
-	// Session init ;
+	// Session init onResume;
 	document.addEventListener('resume', onResume, false);
 	function onResume(){
 		if(window.localStorage.getItem('session') === 'true'){
@@ -81,10 +81,19 @@ function onDeviceReady(){
 		$.mobile.changePage('#pageLogin')
 	});
 
+	/*** Events Touch ***/
+	$("#pageDashboard").swipe(function(){
+		$('#panelMenu').panel('open');
+	});
+
+	$('#pageDashboard').swipeRight(function(){
+		$('#panelMenu').panel('close');
+	});
+
 }
 
 
-// Alerts ;
+/***** ALERTS *****/
 
 function alertDismissed(){
 	// Nothing here ;
@@ -93,3 +102,5 @@ function alertDismissed(){
 function showAlert(message, title, buttonName){
 	navigator.notification.alert(message, alertDismissed, title, buttonName);
 }
+
+/***** END ALERTS *****/

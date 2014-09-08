@@ -46,6 +46,7 @@ C:\www\data\localweb\Apnote\platforms\android\assets\www\spec.html \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\apnote.css \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\apnote.min.css \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts.css \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts\icomoon.eot \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts\icomoon.svg \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\css\fonts\icomoon.ttf \
@@ -59,6 +60,7 @@ C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\jquery.mobile
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\jquery.mobile.min.js \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\jquery.mobile.structure.min.css \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\jquery.mobile.theme.min.css \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\waves \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images\ajax-loader.gif \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images\icons-png \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images\icons-svg \
@@ -262,6 +264,11 @@ C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images\icons-
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images\icons-svg\user-white.svg \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images\icons-svg\video-black.svg \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\images\icons-svg\video-white.svg \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\waves\waves.css \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\waves\waves.js \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\waves\waves.min.css \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\waves\waves.min.js \
+C:\www\data\localweb\Apnote\platforms\android\assets\www\framework\waves\waves.min.js.map \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\img\logo.png \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\img\logo_large.png \
 C:\www\data\localweb\Apnote\platforms\android\assets\www\js\app.js \

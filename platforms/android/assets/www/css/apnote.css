@@ -1,0 +1,122 @@
+
+@import url(../framework/jquery.mobile.min.css);
+@import url(../framework/jquery.mobile.theme.min.css);
+@import url(../framework/waves/waves.min.css);
+@import url(fonts.css);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/* General Classes */
+
+body{
+	font-family: 'Lato', sans-serif !important;
+}
+
+input, h1, h2, h3, h4, h5, h6, p {
+	font-family: 'Lato', sans-serif !important;
+}
+
+label {
+	margin: 0 0 0.6em !important;
+}
+
+/* Personal Classes / app abbreviation */
+
+.app-fixed {
+	position: fixed !important;
+	width: 100%;
+}
+
+.center {
+	text-align: center !important;
+}
+
+.app-logo{
+	width: 60%;
+	margin: 5em 0 1em;
+}
+
+.app-header, .app-footer{
+	padding: 12px 0 10px;
+}
+
+.app-footer {
+	bottom: 0;
+	text-align: center;
+	font-size: 10px;
+	min-height: 44px;
+}
+
+/** App Dashboard Header*/
+.app-dash-header {
+	background: #ED145B !important;
+	color: #FFFFFF !important;
+	text-shadow: none !important;
+	min-height: 44px !important;
+	padding: 0 !important;
+	z-index: 9997;
+	margin-top: -1px;
+}
+
+.app-panel {
+	z-index: 9999;
+}
+
+.app-content {
+	margin-top: 44px;
+}
+
+.app-dash-btn {
+	width: 45px;
+	height: 42px;
+	top: 0;
+	position: absolute;
+	display: block;
+}
+
+.app-title {
+	position: absolute;
+	left: 45px;
+	top: 12px;
+	font-size: 14px;
+}
+
+.app-icon {
+	padding: 10px;
+	position:relative;
+	top: 12px;
+	left: 5px;
+}
+
+
+
+/* Modified Classes jQuery Mobile */
+
+.ui-block-a a, .ui-block-c a, .ui-grid-a a{
+	color: #FFFFFF !important;
+	text-decoration: none;
+}
+
+.ui-grid-a a{
+	color: #FFFFFF !important;
+	text-decoration: none;
+}
+
+.ui-page-theme-a .ui-focus, .ui-shadow-inset, .ui-btn.ui-btn-b:focus {
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.ui-loader-default {
+	margin-top: 6.5em;
+}
+
+li#item {
+	background-color: #FFF;
+	border-color: #DDD;
+	color: #333;
+	text-shadow: 0 1px 0 #F3F3F3;
+	border-width: 1px 0 0;
+	border-style: solid;
+	padding: .7em 1em;
+}

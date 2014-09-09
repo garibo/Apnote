@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <!-- Styles     -->
+    <link rel="stylesheet" type="text/css" href="css/apnote.min.css" />
+    <!-- Scripts    -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="framework/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="framework/waves/waves.min.js"></script>
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/app.min.js"></script>
+    <title>Apnote.Dev</title>
+  </head>
+  <body onload="init()">
+    <div class="app">
+
+      <!-- Login Page -->
+      <div id="pageLogin" data-role="page">
+        <div role="main" class="ui-content">
+          <center><img class="app-logo" src="img/logo_large.png" /></center>
+          <form id="appLogin">
+            <label>
+              <input id="email" type="email" name="email" placeholder="example@getapnote.dev" />
+            </label>
+            <label>
+              <input id="password" type="password" name="passwd" placeholder="Contraseña" />
+            </label>
+            <button class="ui-btn ui-btn-b ui-corner-all" id="btnLogin">Iniciar Sesión</button>
+          </form>
+        </div>
+        <div data-role="footer" class="app-footer app-fixed" style="min-height: 15px !important;">devs@getapnote.dev &copy; 2014</div>
+      </div> <!-- /page -->
+
+      <!-- Dashboard Page -->
+      <div id="pageDashboard" data-role="page">
+        <div data-role="panel" data-position-fixed="true" data-display="overlay" id="panelMenu" class="app-panel">
+          <ul data-role="listview">
+            <li><a href="#">Javier Díaz</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#" id="btnLogout">Cerrar Sesión</a></li>
+          </ul>
+        </div><!-- /panel -->
+        <div data-role="header" class="app-header app-dash-header app-fixed">
+          <div class="ui-grid-b">
+            <div class="ui-block-a">
+              <a href="#panelMenu" class="app-dash-btn"><span class="icon-menu2 app-icon"></span></a>
+            </div> 
+            <div class="ui-block-b"><span class="app-title">Dashboard</span></div>
+            <div class="ui-block-c">
+              <a href="#" class="app-dash-btn" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a>
+            </div>
+          </div>
+        </div>
+        <div role="main" class="ui-content app-content">
+          
+          <ul data-role="listview">
+            <li data-role="list-divider" id="prosIniciados">Proyectos en Curso</li>
+              <!-- /Proyects On -->
+            <li data-role="list-divider" id="prosNuevos">Proyectos sin Iniciar</li>
+              <!-- /Proyects Nuevos -->
+          </ul><!-- /listview -->
+
+        </div>
+        <div data-role="footer" class="app-footer app-fixed" style="background: transparent !important; border: 0;padding: 0 !important;">
+          <div class="ui-grid-a">
+            <a href="#" id="refreshProjects" class="app-dash-btn waves-effect waves-light waves-circle " style="right: 10px;top:-10px;background: #ED145B !important; overflow: hidden;"><span class="icon-loop2 app-icon" style="font-size: 16px; left: 0 !important;"></span></a>
+          </div>
+        </div>
+      </div> <!-- /page -->
+
+    </div>
+    <script type="text/javascript">
+      Waves.displayEffect();
+    </script>
+  </body>  
+</html>

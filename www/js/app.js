@@ -123,10 +123,10 @@ function proyectosCurso(){
 			$('.app-append-two').remove();
 			if(data != null){
 				for(var i = 0; i < data.length; i++){
-					$('#prosNuevos').after('<li class="app-append-two ui-li-static ui-body-inherit"><div><p><b>Nombre</b></p><p>'+data[i].p_nombre+'</p><p><b>Descripción</b></p><p>'+data[i].p_descri+'</p><p><b>Fecha y Hora: </b>'+data[i].p_fecha+'</p><p><b>Categoría: </b>'+data[i].p_cat+'</p></div></li>');
+					$('#prosNuevos').after('<li id="item" data-id="'+data[i].id_proyecto+'" class="box waves-effect app-append-two"><div><p><b>Nombre</b></p><p>'+data[i].p_nombre+'</p><p><b>Descripción</b></p><p>'+data[i].p_descri+'</p><p><b>Fecha y Hora: </b>'+data[i].p_fecha+'</p><p><b>Categoría: </b>'+data[i].p_cat+'</p></div></li>');
 				}
 			}else{
-				$('#prosNuevos').after('<li class="app-append-two ui-li-static ui-body-inherit"><div><p class="center" style="font-size: .7em;"><span class="icon-info2" style="padding-right: 5px;"></span> No hay proyectos nuevos.</p></div></li>')
+				$('#prosNuevos').after('<li id="item" class="box waves-effect app-append-two"><div><p class="center" style="font-size: .7em;"><span class="icon-info2" style="padding-right: 5px;"></span> No hay proyectos nuevos.</p></div></li>')
 			}
 			
 		}
@@ -145,10 +145,10 @@ function proyectosIniciados(){
 			$('.app-append').remove();
 			if(data != null){
 				for(var i = 0; i < data.length; i++){
-					$('#prosIniciados').after('<li class="app-append ui-li-static ui-body-inherit"><div><p><b>Nombre</b></p><p>'+data[i].p_nombre+'</p><p><b>Descripción</b></p><p>'+data[i].p_descri+'</p><p><b>Fecha y Hora: </b>'+data[i].p_fecha+'</p><p><b>Categoría: </b>'+data[i].p_cat+'</p></div></li>');
+					$('#prosIniciados').after('<li id="item" data-id="'+data[i].id_proyectos+'" class="box waves-effect app-append"><div><p><b>Nombre</b></p><p>'+data[i].p_nombre+'</p><p><b>Descripción</b></p><p>'+data[i].p_descri+'</p><p><b>Fecha y Hora: </b>'+data[i].p_fecha+'</p><p><b>Categoría: </b>'+data[i].p_cat+'</p></div></li>');
 				}
 			}else{
-				$('#prosIniciados').after('<li class="app-append ui-li-static ui-body-inherit"><div><p class="center" style="font-size: .7em;"><span class="icon-info2" style="padding-right: 5px;"></span> No hay proyectos en curso.</p></div></li>')
+				$('#prosIniciados').after('<li id="item" class="box waves-effect app-append"><div><p class="center" style="font-size: .7em;"><span class="icon-info2" style="padding-right: 5px;"></span> No hay proyectos en curso.</p></div></li>')
 			}
 			
 		}

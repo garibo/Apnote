@@ -110,3 +110,13 @@ label {
 .ui-loader-default {
 	margin-top: 6.5em;
 }
+
+li#item {
+	background-color: #FFF;
+	border-color: #DDD;
+	color: #333;
+	text-shadow: 0 1px 0 #F3F3F3;
+	border-width: 1px 0 0;
+	border-style: solid;
+	padding: .7em 1em;
+}

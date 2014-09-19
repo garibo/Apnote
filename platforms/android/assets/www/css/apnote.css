@@ -88,6 +88,43 @@ label {
 }
 
 
+li#item{
+	background-color: #FFF;
+	border-color: #DDD;
+	color: #333;
+	text-shadow: 0 1px 0 #F3F3F3;
+	border-width: 1px 0 0;
+	border-style: solid;
+	padding: .7em 1em;
+}
+
+ul#tabBar {
+	position: fixed !important;
+	z-index: 9998;
+	background: white;
+	width: 100%;
+	top: 44px;
+	left: -1px;	
+}
+
+ul#tabBar li {
+	border-bottom: 2px solid #DFDFDF;
+}
+
+ul#tabBar li a{
+	color: #B6B6B6 !important;
+	padding: 15px;
+	border-color: white !important;
+}
+
+ul#tabBar li.ui-tabs-active a{
+	color: #2E2E2E !important;
+	padding: 15px;
+	border-color: white !important;
+}
+
+.panelTab {margin-top: 86px;}
+
 
 /* Modified Classes jQuery Mobile */
 
@@ -111,12 +148,17 @@ label {
 	margin-top: 6.5em;
 }
 
-li#item {
-	background-color: #FFF;
-	border-color: #DDD;
-	color: #333;
-	text-shadow: 0 1px 0 #F3F3F3;
-	border-width: 1px 0 0;
-	border-style: solid;
-	padding: .7em 1em;
+.ui-page-theme-a .ui-btn.ui-btn-active{
+	background: none !important;
+	color: #2e2e2e !important;
+	text-shadow: none !important;
+	border-color: #DDD !important;
+}
+
+.ui-page-theme-a .ui-btn:focus{
+	box-shadow: none !important;
+}
+
+.ui-navbar li:last-child .ui-btn{
+	margin: 0 !important;
 }

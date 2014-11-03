@@ -7,7 +7,7 @@ Javier Diaz			v1.0.0
 
 */
 
-var baseURI = 'http://192.168.1.71/webapnote/API';
+var baseURI = 'http://192.168.1.75/webapnote/API';
 
 	// Initial Components and Modules - PhoneGap;
 	function init(){
@@ -64,7 +64,7 @@ var baseURI = 'http://192.168.1.71/webapnote/API';
 					setTimeout(function(){
 						if(data.success == 1){
 							$.mobile.loading('hide');
-							showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
+							//showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
 							$.mobile.changePage('#pageDashboard');
 							console.log(data);
 							window.localStorage.setItem('session', 'true');
@@ -78,7 +78,7 @@ var baseURI = 'http://192.168.1.71/webapnote/API';
 							proyectosCurso();
 						}else{
 							$.mobile.loading('hide');
-							showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
+							//showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
 							console.log(data);
 						}
 					}, 1000);
@@ -88,7 +88,13 @@ var baseURI = 'http://192.168.1.71/webapnote/API';
 		});
 
 		// Function to logout ;
-		$('#btnLogout').on('click', function(e){
+		$('#panelMenu').on('click','#btnLogout', function(e){
+			e.preventDefault();
+			window.localStorage.clear();
+			$.mobile.changePage('#pageLogin')
+		});
+
+		$('#panelMenuP').on('click','#btnLogout2', function(e){
 			e.preventDefault();
 			window.localStorage.clear();
 			$.mobile.changePage('#pageLogin')
@@ -115,7 +121,28 @@ var baseURI = 'http://192.168.1.71/webapnote/API';
 						$(datas).appendTo("#"+label);
 						console.log('This is '+label+' , the content is '+content+'');
 					});
-					$.mobile.changePage('#projectPage');
+					$.ajax({
+						url: baseURI+'/verTareas/'+id+'?jsoncallback=?',
+						type: 'GET',
+						dataType: 'json',
+						success: function(data){
+							console.log(data);
+							$.each(data, function(i, object){
+								var list = $('<li/>');
+								var z = 0;
+								$.each(object, function(key, value){
+									if(z < 1){
+										var chtml = '<a href="#">'+value+'</a>';
+										$(chtml).addClass('ui-btn ui-btn-icon-right ui-icon-carat-r').appendTo(list);
+									}
+									z++;
+								});
+								list.appendTo('#tareas');
+							});
+							$.mobile.changePage('#projectPage');
+						}
+					});
+					
 				}
 			});
 		});

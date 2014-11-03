@@ -7,7 +7,7 @@ Javier Diaz			v1.0.0
 
 */
 
-var baseURI = 'http://192.168.1.71/webapnote/API';
+var baseURI = 'http://192.168.1.75/webapnote/API';
 
 	// Initial Components and Modules - PhoneGap;
 	function init(){

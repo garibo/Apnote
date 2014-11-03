@@ -88,7 +88,13 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 		});
 
 		// Function to logout ;
-		$('#btnLogout').on('click', function(e){
+		$('#panelMenu').on('click','#btnLogout', function(e){
+			e.preventDefault();
+			window.localStorage.clear();
+			$.mobile.changePage('#pageLogin')
+		});
+
+		$('#panelMenuP').on('click','#btnLogout2', function(e){
 			e.preventDefault();
 			window.localStorage.clear();
 			$.mobile.changePage('#pageLogin')
@@ -101,6 +107,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 			proyectosCurso();
 		});
 
+		// Lista de Proyectos con Tareas
 		$('#projectList').on('click', '#item', function(){
 			var id = this.getAttribute('data-id');
 			$.ajax({
@@ -115,10 +122,39 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 						$(datas).appendTo("#"+label);
 						console.log('This is '+label+' , the content is '+content+'');
 					});
-					$.mobile.changePage('#projectPage');
+					$('#tareas li').remove();
+					$.ajax({
+						url: baseURI+'/verTareas/'+id+'?jsoncallback=?',
+						type: 'GET',
+						dataType: 'json',
+						success: function(data){
+							console.log(data);
+							$.each(data, function(i, object){
+								var list = $('<li/>');
+								var chtml = '<a href="#" id="tag" data-idtarea="'+object.Id+'">'+object.Titulo+'</a>';
+								$(chtml).addClass('ui-btn ui-btn-icon-right ui-icon-carat-r').appendTo(list);
+								list.appendTo('#tareas');
+							});
+							$.mobile.changePage('#projectPage');
+						}
+					});
+					
 				}
 			});
 		});
+
+		$('#tareas').on('click','a#tag', function(){
+			var tarea = $(this).data('idtarea');
+			console.log('Presed: '+tarea);
+			navigator.camera.getPicture(function(imageURL){
+				alert(imageURL);
+			}, function(message){
+				alert(message);
+			}, {
+				quality: 50,
+				destinationType: Camera.DestinationType.FILE_URL
+			});
+		})
 
 		$('#bckbutton').on('click', function(){
 			$.mobile.changePage('#pageDashboard');

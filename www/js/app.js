@@ -64,7 +64,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 					setTimeout(function(){
 						if(data.success == 1){
 							$.mobile.loading('hide');
-							//showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
+							showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
 							$.mobile.changePage('#pageDashboard');
 							console.log(data);
 							window.localStorage.setItem('session', 'true');
@@ -78,7 +78,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 							proyectosCurso();
 						}else{
 							$.mobile.loading('hide');
-							//showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
+							showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
 							console.log(data);
 						}
 					}, 1000);
@@ -107,6 +107,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 			proyectosCurso();
 		});
 
+		// Lista de Proyectos con Tareas
 		$('#projectList').on('click', '#item', function(){
 			var id = this.getAttribute('data-id');
 			$.ajax({
@@ -121,6 +122,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 						$(datas).appendTo("#"+label);
 						console.log('This is '+label+' , the content is '+content+'');
 					});
+					$('#tareas li').remove();
 					$.ajax({
 						url: baseURI+'/verTareas/'+id+'?jsoncallback=?',
 						type: 'GET',
@@ -129,14 +131,8 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 							console.log(data);
 							$.each(data, function(i, object){
 								var list = $('<li/>');
-								var z = 0;
-								$.each(object, function(key, value){
-									if(z < 1){
-										var chtml = '<a href="#">'+value+'</a>';
-										$(chtml).addClass('ui-btn ui-btn-icon-right ui-icon-carat-r').appendTo(list);
-									}
-									z++;
-								});
+								var chtml = '<a href="#" id="tag" data-idtarea="'+object.Id+'">'+object.Titulo+'</a>';
+								$(chtml).addClass('ui-btn ui-btn-icon-right ui-icon-carat-r').appendTo(list);
 								list.appendTo('#tareas');
 							});
 							$.mobile.changePage('#projectPage');
@@ -146,6 +142,19 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 				}
 			});
 		});
+
+		$('#tareas').on('click','a#tag', function(){
+			var tarea = $(this).data('idtarea');
+			console.log('Presed: '+tarea);
+			navigator.camera.getPicture(function(imageURL){
+				alert(imageURL);
+			}, function(message){
+				alert(message);
+			}, {
+				quality: 50,
+				destinationType: Camera.DestinationType.FILE_URL
+			});
+		})
 
 		$('#bckbutton').on('click', function(){
 			$.mobile.changePage('#pageDashboard');

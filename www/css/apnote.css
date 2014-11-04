@@ -55,6 +55,7 @@ label {
 	padding: 0 !important;
 	z-index: 9997;
 	top: 0;
+	border: 0 !important;
 	margin-top: -2px;
 }
 
@@ -104,7 +105,7 @@ ul#tabBar {
 	z-index: 9998;
 	background: white;
 	width: 100%;
-	top: 44px;
+	top: 42px;
 	left: -1px;	
 }
 
@@ -124,8 +125,23 @@ ul#tabBar li.ui-tabs-active a{
 	border-color: white !important;
 }
 
-.panelTab {margin-top: 86px;}
+.panelTab {margin-top: 85px;}
 
+.title-activity {
+	text-align: left;
+	padding: 10px 17px;
+	text-shadow: none;
+	color: #FFF;
+	font-size: 12px;
+	top: 42px;
+	position: fixed;
+	background: #2E2E2E;
+	width: 100%;
+}
+
+.title-activity p {
+	margin: 0 !important;
+}
 
 /* Modified Classes jQuery Mobile */
 
@@ -167,4 +183,13 @@ ul#tabBar li.ui-tabs-active a{
 .ui-listview>.ui-li-static {
 	padding: 10px 16px !important;
 	margin-bottom: -9px !important;
+}
+
+ul#tabBar li.ui-tabs-active a {
+	color: #FAFAFA !important;
+	text-shadow: none !important;
+	background: #2E2E2E !important;
+	padding: 15px;
+	border: 0 !important;
+	/* border-color: #FFF!important; */
 }

@@ -131,7 +131,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 							console.log(data);
 							$.each(data, function(i, object){
 								var list = $('<li/>');
-								var chtml = '<a href="#" id="tag" data-idtarea="'+object.Id+'">'+object.Titulo+'</a>';
+								var chtml = '<a href="#" id="tag" data-idtarea="'+object.Id+'" data-val="'+object.Titulo+'">'+object.Titulo+'</a>';
 								$(chtml).addClass('ui-btn ui-btn-icon-right ui-icon-carat-r').appendTo(list);
 								list.appendTo('#tareas');
 							});
@@ -157,6 +157,11 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 		});*/
 
 		$('#tareas').on('click', 'a#tag', function(){
+			var id = $(this).data('idtarea');
+			var val = $(this).data('val');
+			console.log(id+' '+val);
+			$('#append-title').remove();
+			$('.title-activity').append('<p id="append-title">'+val+'</p>');
 			$.mobile.changePage('#activityPage');
 		});
 

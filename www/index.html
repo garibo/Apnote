@@ -70,7 +70,14 @@
         </div>
         <div data-role="footer" class="app-footer app-fixed" style="background: transparent !important; border: 0;padding: 0 !important;">
           <div class="ui-grid-a">
-            <a href="#" id="refreshProjects" class="app-dash-btn waves-effect waves-light waves-circle " style="right: 10px;top:-10px;background: #F0514F !important; overflow: hidden;"><span class="icon-loop2 app-icon" style="font-size: 16px; left: 0 !important;"></span></a>
+            <!--<a href="#" id="refreshProjects" class="app-dash-btn waves-effect waves-light waves-circle " style="right: 10px;top:-10px;background: #F0514F !important; overflow: hidden;"><span class="icon-loop2 app-icon" style="font-size: 16px; left: 0 !important;"></span></a>-->
+            <svg height="45"  width="45" class="app-dash-btn waves-effect waves-light waves-circle " style="right: 10px;top:-10px;background: #F0514F !important; overflow: hidden;">
+              <span id="refreshProjects" class="icon-loop2 app-icon" style="font-size: 16px; top: -7px;
+              color: #FFF;
+              text-shadow: inherit !important;
+              position: absolute;
+              right: -250px;"></span>
+            </svg>
           </div>
         </div>
       </div> <!-- /page -->
@@ -123,17 +130,42 @@
                 <label style="font-size: 13px;"><b>Responsable</b></label>
               </li>
               <li id="proycategoria">
-                <label style="font-size: 13px;"><b>Categoria</b></label>
+                <label style="font-size: 13px;padding-top: 5px;"><b>Categoria</b></label>
               </li>
             </ul>
           </div>
           <div id="activities" class="ui-content app-content panelTab">
-            <ul data-role="listview" id="tareas">
+            <ul data-role="listview" id="tareas" style="padding-top: 1px;">
             </ul>
           </div>
         </div><!-- /tabs -->
 
       </div><!-- /page -->
+
+      <!-- Works / Activity Page -->
+      <div data-role="page" id="activityPage">
+        <div data-role="panel" data-position-fixed="true" data-display="overlay" id="panelMenuP" class="app-panel">
+          <ul data-role="listview">
+            <li><a href="#">Javier Díaz</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#" id="btnLogout2">Cerrar Sesión</a></li>
+          </ul>
+        </div><!-- /panel -->
+        <div data-role="header" class="app-header app-dash-header app-fixed">
+          <div class="ui-grid-b">
+            <div class="ui-block-a">
+              <a href="#" id="bckbutton2" class="app-dash-btn waves-effect"><span class="icon-arrow-left2 app-icon"></span></a>
+            </div> 
+            <div class="ui-block-b"><span class="app-title">Nombre Actividad</span></div>
+            <div class="ui-block-c">
+              <a href="#" class="app-dash-btn waves-effect" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a>
+              <a href="#panelMenuP" class="app-dash-btn waves-effect" style="right: 45px;"><span class="icon-menu2 app-icon"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
     <script type="text/javascript">

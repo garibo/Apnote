@@ -143,7 +143,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 			});
 		});
 
-		$('#tareas').on('click','a#tag', function(){
+		/*$('#tareas').on('click','a#tag', function(){
 			var tarea = $(this).data('idtarea');
 			console.log('Presed: '+tarea);
 			navigator.camera.getPicture(function(imageURL){
@@ -154,10 +154,20 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 				quality: 50,
 				destinationType: Camera.DestinationType.FILE_URL
 			});
-		})
+		});*/
 
-		$('#bckbutton').on('click', function(){
+		$('#tareas').on('click', 'a#tag', function(){
+			$.mobile.changePage('#activityPage');
+		});
+
+		$('#bckbutton').on('click', function(e){
+			e.preventDefault();
 			$.mobile.changePage('#pageDashboard');
+		});
+
+		$('#bckbutton2').on('click', function(e){
+			e.preventDefault();
+			$.mobile.changePage('#projectPage');
 		});
 
 		$('#panelMenu').trigger('updatelayout');

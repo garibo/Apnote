@@ -135,7 +135,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 								$(chtml).addClass('ui-btn ui-btn-icon-right ui-icon-carat-r').appendTo(list);
 								list.appendTo('#tareas');
 							});
-							$.mobile.changePage('#projectPage');
+							$.mobile.changePage('#projectPage')
 						}
 					});
 					

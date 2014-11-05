@@ -193,3 +193,22 @@ ul#tabBar li.ui-tabs-active a {
 	border: 0 !important;
 	/* border-color: #FFF!important; */
 }
+
+a#btn-new {
+	width: 89%;
+	display: block;
+	text-align: center;
+	padding: 10px 0;
+	border: 1px dashed #888;
+	color: #888;
+	text-decoration: none;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 20px;
+}
+
+a#btn-new:hover {
+	border: 1px dashed #3C3C3C;
+	color: #2E2E2E;
+	font-weight: bold;
+}

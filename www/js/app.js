@@ -65,7 +65,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 						if(data.success == 1){
 							$.mobile.loading('hide');
 							showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
-							$.mobile.changePage('#pageDashboard');
+							$.mobile.changePage('#pageDashboard', {transition: 'slide'});
 							console.log(data);
 							window.localStorage.setItem('session', 'true');
 							window.localStorage.setItem('nombre', data.nombre);
@@ -91,13 +91,13 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 		$('#panelMenu').on('click','#btnLogout', function(e){
 			e.preventDefault();
 			window.localStorage.clear();
-			$.mobile.changePage('#pageLogin')
+			$.mobile.changePage('#pageLogin', {transition: 'slide'})
 		});
 
 		$('#panelMenuP').on('click','#btnLogout2', function(e){
 			e.preventDefault();
 			window.localStorage.clear();
-			$.mobile.changePage('#pageLogin')
+			$.mobile.changePage('#pageLogin', {transition: 'slide'})
 		});
 
 		$('#refreshProjects').on('click',function(e){
@@ -135,7 +135,7 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 								$(chtml).addClass('ui-btn ui-btn-icon-right ui-icon-carat-r').appendTo(list);
 								list.appendTo('#tareas');
 							});
-							$.mobile.changePage('#projectPage')
+							$.mobile.changePage('#projectPage', {transition: 'slide'});
 						}
 					});
 					
@@ -143,18 +143,38 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 			});
 		});
 
-		/*$('#tareas').on('click','a#tag', function(){
+	/*********** Take a Picture ***********/
+		$('#takepicture').on('click', function(){
 			var tarea = $(this).data('idtarea');
 			console.log('Presed: '+tarea);
+			//$.mobile.changePage('#imagePage', {transition: 'slide'});
 			navigator.camera.getPicture(function(imageURL){
 				alert(imageURL);
+				var options = new FileUploadOptions();
+				options.filekey = "file";
+				options.fileName = imageURL.substr(imageURL.lastIndexOf('/')+1);
+				options.mimeType = "image/jpeg";
+
+				var params = new Object();
+				params.value1 = "test";
+				params.value2 = "param";
+				options.params = params;
+				options.chunkedMode = false;
+
+				var ft = new FileTransfer();
+				ft.upload(imageURL, baseURI+"/uploadFiles", win, fail, options);
+				$('#getTake').attr('src', imageURL);
+				$('#getTake').attr('data-name', imageURL);
+				$.mobile.changePage('#imagePage', {transition: 'slide'});
 			}, function(message){
 				alert(message);
 			}, {
 				quality: 50,
 				destinationType: Camera.DestinationType.FILE_URL
 			});
-		});*/
+		});
+
+	/*********** End Take a Picture ***********/
 
 		$('#tareas').on('click', 'a#tag', function(){
 			var id = $(this).data('idtarea');
@@ -162,17 +182,17 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 			console.log(id+' '+val);
 			$('#append-title').remove();
 			$('.title-activity').append('<p id="append-title">'+val+'</p>');
-			$.mobile.changePage('#activityPage');
+			$.mobile.changePage('#activityPage', {transition: 'slide'});
 		});
 
 		$('#bckbutton').on('click', function(e){
 			e.preventDefault();
-			$.mobile.changePage('#pageDashboard');
+			$.mobile.changePage('#pageDashboard', {transition: 'slide', reverse: true});
 		});
 
 		$('#bckbutton2').on('click', function(e){
 			e.preventDefault();
-			$.mobile.changePage('#projectPage');
+			$.mobile.changePage('#projectPage', {transition: 'slide', reverse: true});
 		});
 
 		$('#panelMenu').trigger('updatelayout');
@@ -190,6 +210,17 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 
 	function alerts(message){
 		alert(message);
+	}
+
+	function win(r) {
+		console.log("Code = " + r.responseCode);
+		console.log("Response  =" + r.response);
+		console.log("Sent = " + r.bytesSent);
+		alert(r.reponse);
+	}
+
+	function fail(error) {
+		alert("An error has ocurred: Code = " + error.code);
 	}
 
 	/***** Llamada de Datos al Servidor *****/

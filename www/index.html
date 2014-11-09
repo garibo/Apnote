@@ -21,7 +21,7 @@
 
       <!-- Login Page -->
       <div id="pageLogin" data-role="page">
-        <div role="main" class="ui-content">
+        <div role="main" class="ui-content content-fixed">
           <center><img class="app-logo" src="img/logo_large.png" /></center>
           <form id="appLogin">
             <label>
@@ -70,14 +70,7 @@
         </div>
         <div data-role="footer" class="app-footer app-fixed" style="background: transparent !important; border: 0;padding: 0 !important;">
           <div class="ui-grid-a">
-            <!--<a href="#" id="refreshProjects" class="app-dash-btn waves-effect waves-light waves-circle " style="right: 10px;top:-10px;background: #F0514F !important; overflow: hidden;"><span class="icon-loop2 app-icon" style="font-size: 16px; left: 0 !important;"></span></a>-->
-            <svg height="45"  width="45" class="app-dash-btn waves-effect waves-light waves-circle " style="right: 10px;top:-10px;background: #F0514F !important; overflow: hidden;">
-              <span id="refreshProjects" class="icon-loop2 app-icon" style="font-size: 16px; top: -7px;
-              color: #FFF;
-              text-shadow: inherit !important;
-              position: absolute;
-              right: -250px;"></span>
-            </svg>
+           <a href="#" id="refreshProjects" class="app-dash-btn waves-effect waves-light waves-circle " style="right: 15px;top:-22px;background: #FFF !important; overflow: hidden;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.42);border: 1px solid #D3D3D3;"><span class="icon-loop2 app-icon" style="font-size: 15px;left: 0px !important;top: 16px;color: #5F5F5F;"></span></a>
           </div>
         </div>
       </div> <!-- /page -->
@@ -108,14 +101,14 @@
         <div data-role="tabs" id="tabs">
           <div data-role="navbar">
             <ul id="tabBar">
-              <li><a href="#info" class="icon-info ui-btn-active"> Información</a></li>
-              <li><a href="#activities" class="icon-books"> Actividades</a></li>
+              <li><a href="#info" class=" ui-btn-active"> Informacion</a></li>
+              <li><a href="#activities" class=""> Actividades</a></li>
             </ul>
           </div><!-- /navbar -->
-          <div role="main" id="info" class="ui-content app-content panelTab">
+          <div role="main" id="info" class="ui-content app-content panelTab content-fixed">
             <ul data-role="listview" id="menu">
-              <li id="proyname">
-                <label style="padding-top: 30px;font-size: 13px;"><b>Nombre del Proyecto</b></label>
+              <li id="proyname" style="border-top: 0 !important">
+                <label style="padding-top: 10px;font-size: 13px;"><b>Nombre del Proyecto</b></label>
               </li>
               <li id="proydescri">
                 <label style="font-size: 13px;"><b>Descripción</b></label>
@@ -129,13 +122,13 @@
               <li id="resnombre">
                 <label style="font-size: 13px;"><b>Responsable</b></label>
               </li>
-              <li id="proycategoria">
+              <li id="proycategoria" style="border-bottom: 0 !important">
                 <label style="font-size: 13px;padding-top: 5px;"><b>Categoria</b></label>
               </li>
             </ul>
           </div>
-          <div id="activities" class="ui-content app-content panelTab">
-            <ul data-role="listview" id="tareas" style="padding-top: 1px;">
+          <div id="activities" class="ui-content app-content panelTab content-fixed">
+            <ul data-role="listview" id="tareas" style="padding-top: 0px;">
             </ul>
           </div>
         </div><!-- /tabs -->
@@ -166,9 +159,49 @@
           </div>
         </div>
         <div class="title-activity"></div>
-        <div role="main" id="info" class="ui-content app-content panelTab">
-          <ul></ul>
-          <a href="#" id="btn-new">Tomar Fotografía</a>
+        <div role="main" id="info" style="margin-top: 0 !important" class="ui-content app-content panelTab main-activity">
+          <div class="act" style="padding: 17px;padding: 17px;margin-top: 60px;">
+            <br />
+            Information
+            <ul></ul>
+            <a href="#" id="takepicture">Tomar Fotografía</a>
+          </div>
+        </div>
+      </div><!-- /page -->
+
+      <!-- Works / ImageSend -->
+      <div data-role="page" id="imagePage">
+        <div data-role="panel" data-position-fixed="true" data-display="overlay" id="panelMenuP" class="app-panel">
+          <ul data-role="listview">
+            <li><a href="#">Javier Díaz</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Proyectos</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#" id="btnLogout3">Cerrar Sesión</a></li>
+          </ul>
+        </div><!-- /panel -->
+        <div data-role="header" class="app-header app-dash-header app-fixed">
+          <div class="ui-grid-b">
+            <div class="ui-block-a">
+              <a href="#" id="bckbutton3" class="app-dash-btn waves-effect"><span class="icon-close app-icon"></span></a>
+            </div> 
+            <div class="ui-block-b"><span class="app-title"></span></div>
+            <div class="ui-block-c">
+              <!--<a href="#" class="app-dash-btn waves-effect" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a>-->
+              <!--<a href="#panelMenuP" class="app-dash-btn waves-effect" style="right: 45px;"><span class="icon-menu2 app-icon"></span></a> -->
+            </div>
+          </div>
+        </div>
+        <div class="title">Formulario de Imagen</div>
+        <div role="main" id="info" style="margin-top: 0 !important" class="ui-content app-content panelTab">
+          <div class="act" style="">
+            <br />
+            <img id="getTake" src="" data-name=""  width="285"/>
+            <input type="text" placeholder="Titulo" />
+            <textarea cols="2" rows="3" placeholder="Descripcion"></textarea>
+            <a href="#" id="savepicture" class="ui-btn ui-btn-b">Guardar</a>
+            <br />
+          </div>
         </div>
       </div><!-- /page -->
 

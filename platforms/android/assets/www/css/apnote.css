@@ -54,7 +54,9 @@ label {
 	min-height: 44px !important;
 	padding: 0 !important;
 	z-index: 9997;
-	margin-top: -1px;
+	top: 0;
+	border: 0 !important;
+	margin-top: 0px;
 }
 
 .app-panel {
@@ -65,10 +67,19 @@ label {
 	margin-top: 44px;
 }
 
+.content-fixed {
+	height: 100%;
+	width: 91%;
+	overflow: scroll;
+	position: fixed;
+}
+
 .app-dash-btn {
-	width: 45px;
-	height: 42px;
-	top: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	content: "";
+	top: 2px;
 	position: absolute;
 	display: block;
 }
@@ -76,7 +87,7 @@ label {
 .app-title {
 	position: absolute;
 	left: 45px;
-	top: 12px;
+	top: 14px;
 	font-size: 14px;
 }
 
@@ -100,31 +111,55 @@ li#item{
 
 ul#tabBar {
 	position: fixed !important;
+	box-shadow: 0 2px 2px #E4E4E4;
 	z-index: 9998;
-	background: white;
+	/*background: white;*/
 	width: 100%;
-	top: 44px;
-	left: -1px;	
+	top: 42px;
+	left: 0px;	
 }
 
 ul#tabBar li {
-	border-bottom: 2px solid #DFDFDF;
+	/*border-bottom: 2px solid #DFDFDF;*/
 }
 
 ul#tabBar li a{
-	color: #B6B6B6 !important;
+	color: #FFF;
+	text-shadow: none !important;
+	font-weight: bold !important;
 	padding: 15px;
-	border-color: white !important;
+	border-color: #FFF!important;
+	background: #F0514F;
 }
 
 ul#tabBar li.ui-tabs-active a{
-	color: #2E2E2E !important;
+	color: #FFF;
+	text-shadow: none !important;
+	font-weight: bold !important;
 	padding: 15px;
-	border-color: white !important;
+	border-color: #FFF!important;
+	background: #F0514F;
 }
 
-.panelTab {margin-top: 86px;}
+.panelTab {margin-top: 80px;}
 
+.title-activity {
+	text-align: left;
+	padding: 16px 17px;
+	text-shadow: none;
+	color: #FFF;
+	font-size: 12px;
+	top: 42px;
+	position: fixed;
+	background: #F0514F;
+	width: 100%;
+	z-index: 99;
+	box-shadow: 0 2px 2px #E4E4E4;
+}
+
+.title-activity p {
+	margin: 0 !important;
+}
 
 /* Modified Classes jQuery Mobile */
 
@@ -162,3 +197,51 @@ ul#tabBar li.ui-tabs-active a{
 .ui-navbar li:last-child .ui-btn{
 	margin: 0 !important;
 }
+
+.ui-listview>.ui-li-static {
+	padding: 10px 16px !important;
+	margin-bottom: -9px !important;
+}
+
+ul#tabBar li.ui-tabs-active a {
+	color: #FAFAFA!important;
+	text-shadow: none!important;
+	font-weight: bold !important;
+	box-shadow: inset 0 -2px #FFF !important;
+	background: #F0514F!important;
+	padding: 15px;
+}
+
+a#takepicture {
+	width: 90%;
+	display: block;
+	text-align: center;
+	padding: 10px 0;
+	border: 1px dashed #888;
+	color: #888;
+	text-decoration: none;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 15px;
+}
+
+a#takepicture:hover {
+	border: 1px dashed #3C3C3C;
+	color: #2E2E2E;
+	font-weight: bold;
+}
+
+.ui-navbar li .ui-btn {
+	border: 0 !important;
+}
+
+.main-activity {
+	margin-top: 0 !important;
+	height: 100% !important;
+	width: 100%;
+	display: block;
+	position: fixed;
+	padding: 0 !important;
+}
+
+#tareas { padding-top: 5px !important;}

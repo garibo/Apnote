@@ -8,6 +8,7 @@ Javier Diaz			v1.0.0
 */
 
 var baseURI = 'http://192.168.1.75/webapnote/API';
+var baseImages = 'http://192.168.1.75/webapnote/uploads';
 
 	// Initial Components and Modules - PhoneGap;
 	function init(){
@@ -144,10 +145,8 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 		});
 
 	/*********** Take a Picture ***********/
-		$('#takepicture').on('click', function(){
-			var tarea = $(this).data('idtarea');
-			console.log('Presed: '+tarea);
-			//$.mobile.changePage('#imagePage', {transition: 'slide'});
+		$('.act').on('click', '#takepicture', function(e){
+			e.preventDefault();
 			navigator.camera.getPicture(function(imageURL){
 				alert(imageURL);
 				var options = new FileUploadOptions();
@@ -162,8 +161,10 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 				options.chunkedMode = false;
 
 				var ft = new FileTransfer();
-				ft.upload(imageURL, baseURI+"/uploadFiles", win, fail, options);
+				ft.upload(imageURL, encodeURI(baseURI+"/uploadFiles"), win, fail, options);
 				$('#getTake').attr('src', imageURL);
+				window.localStorage.removeItem('nombreImagen');
+				window.localStorage.setItem('nombreImagen', imageURL.substr(imageURL.lastIndexOf('/')+1) );
 				$.mobile.changePage('#imagePage', {transition: 'slide'});
 			}, function(message){
 				alert(message);
@@ -175,12 +176,39 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 
 	/*********** End Take a Picture ***********/
 
+	/************** Saving Picture *******/
+	
+	$('#savepicture').on('click', function(e){
+		e.preventDefault();
+		var title = $('#tituloImage').val();
+		var descr = $('#desImage').val();
+		var imagen = window.localStorage.getItem('nombreImagen');
+		var tarea = window.localStorage.getItem('tarea');
+		$.ajax({
+			url: baseURI+'/registerImage?jsoncallback=?',
+			type: 'GET',
+			data: {titulo: title, descripcion: descr, image: imagen , idtarea: tarea },
+			dataType: 'json',
+			success: function(response){
+				showAlert(response.mensaje, 'Subida', 'Continuar');
+				$('#tituloImage').val("");
+				$('#desImage').val("");
+				$.mobile.changePage('#projectPage', {transition: 'slide', reverse: true});
+			}
+		});
+	});
+
+	/*************************************/
+		/* Click en un elemento de tareas */
 		$('#tareas').on('click', 'a#tag', function(){
 			var id = $(this).data('idtarea');
 			var val = $(this).data('val');
 			console.log(id+' '+val);
 			$('#append-title').remove();
 			$('.title-activity').append('<p id="append-title">'+val+'</p>');
+			window.localStorage.removeItem('tarea');
+			window.localStorage.setItem('tarea', id);
+			getImages();
 			$.mobile.changePage('#activityPage', {transition: 'slide'});
 		});
 
@@ -264,6 +292,23 @@ var baseURI = 'http://192.168.1.75/webapnote/API';
 					$('#prosIniciados').after('<li id="item" class="box waves-effect app-append"><div><p class="center" style="font-size: .7em;"><span class="icon-info2" style="padding-right: 5px;"></span> No hay proyectos en curso.</p></div></li>')
 				}
 				
+			}
+		});
+	}
+
+	function getImages(){
+		var tarea = window.localStorage.getItem('tarea');
+		$.ajax({
+			url: baseURI+'/getWorks/'+tarea+'?jsoncallback=?',
+			dataType: 'json',
+			type: 'GET',
+			success: function(response){
+				console.log(response);
+				$('#fotos img').remove();
+				$.each(response, function(i, object){
+					var imga = '<img src="'+baseImages+'/'+object.URL+'" width="320px" style="margin-left: -15px" />';
+					$(imga).appendTo('#fotos');
+				});
 			}
 		});
 	}

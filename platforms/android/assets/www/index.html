@@ -159,12 +159,12 @@
           </div>
         </div>
         <div class="title-activity"></div>
-        <div role="main" id="info" style="margin-top: 0 !important" class="ui-content app-content panelTab main-activity">
-          <div class="act" style="padding: 17px;padding: 17px;margin-top: 60px;">
+        <div role="main" id="info" style="margin-top: 0 !important" class="ui-content app-content panelTab">
+          <div class="act" style="">
             <br />
-            Information
-            <ul></ul>
-            <a href="#" id="takepicture">Tomar Fotografía</a>
+            <br />
+            <div id="fotos" style="padding-top: 30px"></div>
+            <a href="#" id="takepicture" data-tarea=""><span class="icon-camera"></span></a>
           </div>
         </div>
       </div><!-- /page -->
@@ -196,9 +196,11 @@
         <div role="main" id="info" style="margin-top: 0 !important" class="ui-content app-content panelTab">
           <div class="act" style="">
             <br />
-            <img id="getTake" src="" data-name=""  width="285"/>
-            <input type="text" placeholder="Titulo" />
-            <textarea cols="2" rows="3"></textarea>
+            <img id="getTake" src="" data-name="" data-tarea=""  width="285"/>
+            <form id="sendingImage">
+            <input id="tituloImage" type="text" placeholder="Titulo" />
+            <textarea id="desImage" cols="2" rows="3" placeholder="Descripcion"></textarea>
+            </form>
             <a href="#" id="savepicture" class="ui-btn ui-btn-b">Guardar</a>
             <br />
           </div>

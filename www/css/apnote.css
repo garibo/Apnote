@@ -149,7 +149,8 @@ ul#tabBar li.ui-tabs-active a{
 .panelTab {margin-top: 80px;}
 
 .title-activity {
-	text-align: center;
+	text-align: left;
+	font-weight: bold;
 	padding: 16px 17px;
 	text-shadow: none;
 	color: #FFF;

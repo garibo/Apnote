@@ -207,9 +207,8 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 			$('#append-title').remove();
 			window.localStorage.removeItem('tarea');
 			window.localStorage.setItem('tarea', id);
-			var pics = window.localStorage.getItem('fotos');
 			getImages();
-			$('.title-activity').append('<p id="append-title">'+val+' / Fotos: '+pics+'</p>');
+			$('.title-activity').append('<p id="append-title">'+val+'<span id="number" style="float: right;">Fotos: </span></p>');
 			$.mobile.changePage('#activityPage', {transition: 'slide'});
 		});
 
@@ -306,8 +305,14 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 			success: function(response){
 				console.log(response);
 				$('#fotos img').remove();
-				window.localStorage.removeItem('fotos');
-				window.localStorage.setItem('fotos', response.length);
+				if(response != null) {
+					window.localStorage.setItem('pictures', response.length);
+					var number = window.localStorage.getItem('pictures');
+					window.localStorage.removeItem('pictures');
+					$('#number').append(number);
+				}else {
+					$('#number').append('0');
+				}
 				$.each(response, function(i, object){
 					var imga = '<img src="'+baseImages+'/'+object.URL+'" width="320px" style="margin-left: -15px" />';
 					$(imga).appendTo('#fotos');

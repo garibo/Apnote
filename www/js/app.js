@@ -206,6 +206,17 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 	$('#fotos').on('click', 'a#getimgUpdate', function(){
 		var id = this.getAttribute('data-imgid');
 		console.log(id);
+		$.ajax({
+			url: baseURI+'/getImageInformation/'+id+'?jsoncallback=?',
+			type: 'GET',
+			dataType: 'json',
+			success: function(response){
+				console.log(response);
+				$('#getTakeU').attr('src',baseImages+'/'+response[0].NameURL);
+				$('#tituloImageU').val(response[0].Titulo);
+				$('#desImageU').val(response[0].Descripcion);
+			}
+		});
 		$.mobile.changePage('#imageupdatePage');
 	});
 
@@ -231,6 +242,14 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 		$('#bckbutton2').on('click', function(e){
 			e.preventDefault();
 			$.mobile.changePage('#projectPage', {transition: 'slide', reverse: true});
+		});
+
+		$('#bckbutton3').on('click', function(e){
+			e.preventDefault();
+			$('#getTakeU').attr('src','');
+			$('#tituloImageU').val('');
+			$('#desImageU').val('');
+			$.mobile.changePage('#activityPage');
 		});
 
 		$('#panelMenu').trigger('updatelayout');

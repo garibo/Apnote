@@ -18,6 +18,8 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 
 	// All the functionality - onDeviceReady();
 	function onDeviceReady(){
+		var usuario = window.localStorage.getItem('email');
+		$('#panelprofile span').html(usuario);
 
 		// Demo Ripple ;
 		if(window.localStorage.getItem('session') === 'true'){
@@ -65,7 +67,7 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 					setTimeout(function(){
 						if(data.success == 1){
 							$.mobile.loading('hide');
-							showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
+							//showAlert(data.message, 'Autenticación Satisfactoria', 'Ir al Dashboard');
 							$.mobile.changePage('#pageDashboard', {transition: 'slide'});
 							console.log(data);
 							window.localStorage.setItem('session', 'true');
@@ -198,6 +200,15 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 		});
 	});
 
+	/************************************
+		Updating a File.
+	*************************************/
+	$('#fotos').on('click', 'a#getimgUpdate', function(){
+		var id = this.getAttribute('data-imgid');
+		console.log(id);
+		$.mobile.changePage('#imageupdatePage');
+	});
+
 	/*************************************/
 		/* Click en un elemento de tareas */
 		$('#tareas').on('click', 'a#tag', function(){
@@ -260,6 +271,12 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 			url: baseURI+'/proyectosCurso?jsoncallback=?',
 			data: {email: user},
 			dataType: 'json',
+			beforeSend: function(){
+				$.mobile.loading('show', {
+					theme: 'renew'
+				});
+				$('#refreshProjects span').hide();
+			},
 			success: function(data){
 				$('.app-append-two').remove();
 				if(data != null){
@@ -291,7 +308,10 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 				}else{
 					$('#prosIniciados').after('<li id="item" class="box waves-effect app-append"><div><p class="center" style="font-size: .7em;"><span class="icon-info2" style="padding-right: 5px;"></span> No hay proyectos en curso.</p></div></li>')
 				}
-				
+			}, 
+			complete: function(){
+				$.mobile.loading('hide');
+				$('#refreshProjects span').show();
 			}
 		});
 	}
@@ -304,7 +324,7 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 			type: 'GET',
 			success: function(response){
 				console.log(response);
-				$('#fotos img').remove();
+				$('#fotos .col-img').remove();
 				if(response != null) {
 					window.localStorage.setItem('pictures', response.length);
 					var number = window.localStorage.getItem('pictures');
@@ -314,7 +334,7 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 					$('#number').append('0');
 				}
 				$.each(response, function(i, object){
-					var imga = '<img src="'+baseImages+'/'+object.URL+'" width="320px" style="margin-left: -15px" />';
+					var imga = '<a href="#" id="getimgUpdate" data-imgid="'+object.ImageID+'"><div class="col-img"><img src="'+baseImages+'/'+object.URL+'" width="320px" /></div></a>';
 					$(imga).appendTo('#fotos');
 				});
 			}

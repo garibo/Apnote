@@ -19,10 +19,10 @@ label {
 	margin: 0 0 0.6em !important;
 }
 
-img + img {
+/*img + img {
 	margin-top: -6px;
 	margin-bottom: -21px;
-}
+}*/
 
 /* Personal Classes / app abbreviation */
 
@@ -219,6 +219,21 @@ ul#tabBar li.ui-tabs-active a {
 	padding: 15px;
 }
 
+#fotos .col-img {
+	width: 70px;
+	float: left;
+	height: 70px;
+	overflow: hidden;
+	padding: 6px;
+	margin: 4px;
+	border: 3px solid #FFF;
+	box-shadow: 0 0px 2px #767676;
+}
+
+.col-img img {
+	margin: -115px -125px;
+}
+
 a#takepicture {
 	width: 50px;
 	height: 50px;
@@ -259,3 +274,22 @@ a#takepicture:hover {
 }
 
 #tareas { padding-top: 5px !important;}
+
+.ui-body-renew{
+	margin-top: 13.6em!important;
+	left: 91.7%!important;
+}
+
+.ui-body-renew span {
+	/*background: none !important;*/
+	display: block;
+	width: 18px!important;
+	height: 18px!important;
+	padding: .0625em;
+	border-radius: 0 !important;
+}
+
+.ui-body-renew .ui-icon-loading {
+	background-color: transparent !important;
+	background-size: 20px !important;
+}

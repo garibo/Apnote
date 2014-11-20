@@ -190,6 +190,11 @@ ul#tabBar li.ui-tabs-active a{
 	margin-top: 6.5em;
 }
 
+.ui-loader {
+	bottom: 2px !important;
+	top: none !important;
+}
+
 .ui-page-theme-a .ui-btn.ui-btn-active{
 	background: none !important;
 	color: #2e2e2e !important;
@@ -277,7 +282,7 @@ a#takepicture:hover {
 
 .ui-body-renew{
 	margin-top: 13.6em!important;
-	left: 91.7%!important;
+	left: 91.2%!important;
 }
 
 .ui-body-renew span {

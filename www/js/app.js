@@ -7,6 +7,9 @@ Javier Diaz			v1.0.0
 
 */
 
+//var baseURI = 'http://10.42.0.1/webapnote/API';
+//var baseImages = 'http://10.42.0.1/webapnote/uploads';
+
 var baseURI = 'http://192.168.1.75/webapnote/API';
 var baseImages = 'http://192.168.1.75/webapnote/uploads';
 
@@ -23,6 +26,8 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 
 		// Demo Ripple ;
 		if(window.localStorage.getItem('session') === 'true'){
+			proyectosIniciados();
+			proyectosCurso();
 			$.mobile.changePage('#pageDashboard');
 		}
 
@@ -97,12 +102,6 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 			$.mobile.changePage('#pageLogin', {transition: 'slide'})
 		});
 
-		$('#panelMenuP').on('click','#btnLogout2', function(e){
-			e.preventDefault();
-			window.localStorage.clear();
-			$.mobile.changePage('#pageLogin', {transition: 'slide'})
-		});
-
 		$('#refreshProjects').on('click',function(e){
 			e.preventDefault();
 			console.log('ok');
@@ -113,6 +112,7 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 		// Lista de Proyectos con Tareas
 		$('#projectList').on('click', '#item', function(){
 			var id = this.getAttribute('data-id');
+			window.localStorage.setItem('proyecto', id);
 			$.ajax({
 				type: 'GET',
 				url: baseURI+'/verProyecto/'+id+'?jsoncallback=?',
@@ -142,11 +142,21 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 						}
 					});
 					
+				},
+				complete: function(){
+					$.ajax({
+						url: baseURI+'/updateTarea/'+id+'?jsoncallback=?',
+						dataType: 'json',
+						type: 'GET',
+						success: function(response){
+							console.log(response);
+						}
+					});
 				}
 			});
 		});
 
-	/*********** Take a Picture ***********/
+	/* Take a Picture */
 		$('.act').on('click', '#takepicture', function(e){
 			e.preventDefault();
 			navigator.camera.getPicture(function(imageURL){
@@ -234,13 +244,41 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 			$.mobile.changePage('#activityPage', {transition: 'slide'});
 		});
 
+		/* Enviar para Revisión */
+		$('#checkSuccess').on('click', function(e){
+			e.preventDefault();
+			var pr = window.localStorage.getItem('proyecto');
+			$.ajax({
+				url: baseURI+'/getImagesByWork/'+pr+'?jsoncallback=?',
+				type: 'GET',
+				dataType: 'json',
+				success: function(response) {
+					console.log(response);
+					if(response !== null){
+						if(response.total == response.objetos.length){
+							console.log("Iguales: "+response.total+","+response.objetos.length);
+							completarProyecto();
+						}else{
+							console.log("No son Iguales: "+response.total+","+response.objetos.length);
+						}
+					}else{
+						console.log('No puede enviarse a revisión.');
+					}
+				}
+			});
+		});
+
 		$('#bckbutton').on('click', function(e){
 			e.preventDefault();
+			proyectosIniciados();
+			proyectosCurso();
 			$.mobile.changePage('#pageDashboard', {transition: 'slide', reverse: true});
 		});
 
 		$('#bckbutton2').on('click', function(e){
 			e.preventDefault();
+			proyectosIniciados();
+			proyectosCurso();
 			$.mobile.changePage('#projectPage', {transition: 'slide', reverse: true});
 		});
 
@@ -356,6 +394,21 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 					var imga = '<a href="#" id="getimgUpdate" data-imgid="'+object.ImageID+'"><div class="col-img"><img src="'+baseImages+'/'+object.URL+'" width="320px" /></div></a>';
 					$(imga).appendTo('#fotos');
 				});
+			}
+		});
+	}
+
+	function completarProyecto(){
+		var id = window.localStorage.getItem('proyecto');
+		$.ajax({
+			url: baseURI+'/updateProyecto/'+id+'?jsoncallback=?',
+			dataType: 'json',
+			type: 'GET',
+			success: function(response){
+				alert(response.message, 'Enviado', 'Regresar');
+				proyectosIniciados();
+				proyectosCurso();
+				$.mobile.changePage('#pageDashboard');
 			}
 		});
 	}

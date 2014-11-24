@@ -45,7 +45,7 @@
           </div>
           <ul data-role="listview" style="margin-top: 130px;">
             <li><a href="#pageDashboard">Dashboard</a></li>
-            <li><a href="#profile">Mi Perfil</a></li>
+            <li><a href="#pageProfile" id="profile1">Mi Perfil</a></li>
             <li><a href="#" id="btnLogout">Cerrar Sesión</a></li>
           </ul>
         </div><!-- /panel -->
@@ -74,6 +74,41 @@
           <div class="ui-grid-a">
            <a href="#" id="refreshProjects" class="app-dash-btn" style="right: 15px;top:-22px;background: #FFF !important; overflow: hidden;box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.42);border: 1px solid #D3D3D3;"><span class="icon-loop2 app-icon" style="font-size: 15px;left: 0px !important;top: 19px;color: #5F5F5F;"></span></a>
           </div>
+        </div>
+      </div> <!-- /page -->
+
+      <!-- Profile Page -->
+      <div id="pageProfile" data-role="page">
+        <div data-role="panel" data-position-fixed="true" data-display="overlay" id="panelMenu" class="app-panel">
+          <div id="panelprofile">
+            <span id="name"></span>
+          </div>
+          <ul data-role="listview" style="margin-top: 130px;">
+            <li><a href="#pageDashboard">Dashboard</a></li>
+            <li><a href="#pageProfile">Mi Perfil</a></li>
+            <li><a href="#" id="btnLogout">Cerrar Sesión</a></li>
+          </ul>
+        </div><!-- /panel -->
+        <div data-role="header" class="app-header app-dash-header app-fixed">
+          <div class="ui-grid-b">
+            <div class="ui-block-a">
+              <a href="#panelMenu" class="app-dash-btn"><span class="icon-menu2 app-icon"></span></a>
+            </div> 
+            <div class="ui-block-b"><span class="app-title">Perfil Personal</span></div>
+            <div class="ui-block-c">
+              <a href="#" class="app-dash-btn" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a>
+            </div>
+          </div>
+        </div>
+        <div role="main" class="ui-content app-content">
+          
+          <ul data-role="listview" id="infoUser">
+            <li id="names"></li>
+            <li id="usr"></li>
+            <li id="emails"></li>
+            <li id="date"></li>
+          </ul><!-- /listview -->
+
         </div>
       </div> <!-- /page -->
 

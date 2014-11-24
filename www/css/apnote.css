@@ -298,3 +298,7 @@ a#takepicture:hover {
 	background-color: transparent !important;
 	background-size: 20px !important;
 }
+
+#infoUser li {
+	margin-bottom: 0 !important;
+}

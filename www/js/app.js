@@ -7,8 +7,8 @@ Javier Diaz			v1.0.0
 
 */
 
-//var baseURI = 'http://10.42.0.1/webapnote/API';
-//var baseImages = 'http://10.42.0.1/webapnote/uploads';
+//var baseURI = 'http://192.168.1.106/webapnote/API';
+//var baseImages = 'http://192.168.1.106/webapnote/uploads';
 
 var baseURI = 'http://192.168.1.75/webapnote/API';
 var baseImages = 'http://192.168.1.75/webapnote/uploads';
@@ -86,7 +86,7 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 							proyectosCurso();
 						}else{
 							$.mobile.loading('hide');
-							showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
+							//showAlert(data.message, 'Autenticación Erronea', 'Volver a Intentar');
 							console.log(data);
 						}
 					}, 1000);
@@ -268,6 +268,31 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 			});
 		});
 
+		/* Botón para ver perfil > Pantalla Dashboard */
+		$('#profile1').on('click', function(e){
+			e.preventDefault();
+
+			$('#names p').remove();
+			$('#usr p').remove();
+			$('#emails p').remove();
+			$('#date p').remove();
+
+			var emails = window.localStorage.getItem('email');
+			var nombre = window.localStorage.getItem('nombre');
+			var apep = window.localStorage.getItem('apep');
+			var apem = window.localStorage.getItem('apem');
+			var date = window.localStorage.getItem('date');
+			var user = window.localStorage.getItem('username');
+
+			$.mobile.changePage('#pageProfile');
+
+			$('#names').append('<p><b>Nombre: </b>'+nombre+' '+apep+' '+apem+'</p>');
+			$('#usr').append('<p><b>Usuario: </b>'+user+'</p>');
+			$('#emails').append('<p><b>Email: </b>'+emails+'</p>');
+			$('#date').append('<p><b>Fecha: </b>'+date+'</p>');
+
+		});
+
 		$('#bckbutton').on('click', function(e){
 			e.preventDefault();
 			proyectosIniciados();
@@ -400,8 +425,9 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 
 	function completarProyecto(){
 		var id = window.localStorage.getItem('proyecto');
+		var email = window.localStorage.getItem('email');
 		$.ajax({
-			url: baseURI+'/updateProyecto/'+id+'?jsoncallback=?',
+			url: baseURI+'/updateProyecto/'+id+'/'+email+'?jsoncallback=?',
 			dataType: 'json',
 			type: 'GET',
 			success: function(response){

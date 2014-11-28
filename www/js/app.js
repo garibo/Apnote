@@ -427,8 +427,9 @@ var baseImages = 'http://192.168.1.75/webapnote/uploads';
 		var id = window.localStorage.getItem('proyecto');
 		var email = window.localStorage.getItem('email');
 		$.ajax({
-			url: baseURI+'/updateProyecto/'+id+'/'+email+'?jsoncallback=?',
+			url: baseURI+'/updateProyecto/'+id+'?jsoncallback=?',
 			dataType: 'json',
+			data: {email: email},
 			type: 'GET',
 			success: function(response){
 				alert(response.message, 'Enviado', 'Regresar');

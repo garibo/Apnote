@@ -45,7 +45,7 @@
           </div>
           <ul data-role="listview" style="margin-top: 130px;">
             <li><a href="#pageDashboard">Dashboard</a></li>
-            <li><a href="#profile">Mi Perfil</a></li>
+            <li><a href="#pageProfile" id="profile1">Mi Perfil</a></li>
             <li><a href="#" id="btnLogout">Cerrar Sesión</a></li>
           </ul>
         </div><!-- /panel -->
@@ -77,6 +77,41 @@
         </div>
       </div> <!-- /page -->
 
+      <!-- Profile Page -->
+      <div id="pageProfile" data-role="page">
+        <div data-role="panel" data-position-fixed="true" data-display="overlay" id="panelMenu" class="app-panel">
+          <div id="panelprofile">
+            <span id="name"></span>
+          </div>
+          <ul data-role="listview" style="margin-top: 130px;">
+            <li><a href="#pageDashboard">Dashboard</a></li>
+            <li><a href="#pageProfile">Mi Perfil</a></li>
+            <li><a href="#" id="btnLogout">Cerrar Sesión</a></li>
+          </ul>
+        </div><!-- /panel -->
+        <div data-role="header" class="app-header app-dash-header app-fixed">
+          <div class="ui-grid-b">
+            <div class="ui-block-a">
+              <a href="#panelMenu" class="app-dash-btn"><span class="icon-menu2 app-icon"></span></a>
+            </div> 
+            <div class="ui-block-b"><span class="app-title">Perfil Personal</span></div>
+            <div class="ui-block-c">
+              <a href="#" class="app-dash-btn" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a>
+            </div>
+          </div>
+        </div>
+        <div role="main" class="ui-content app-content">
+          
+          <ul data-role="listview" id="infoUser">
+            <li id="names"></li>
+            <li id="usr"></li>
+            <li id="emails"></li>
+            <li id="date"></li>
+          </ul><!-- /listview -->
+
+        </div>
+      </div> <!-- /page -->
+
       <!-- Project Dynamic Page -->
       <div data-role="page" id="projectPage">
         <div data-role="header" class="app-header app-dash-header app-fixed">
@@ -87,7 +122,7 @@
             <div class="ui-block-b"><span class="app-title">Proyecto</span></div>
             <div class="ui-block-c">
               <a href="#" class="app-dash-btn" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a> 
-              <a href="#" class="app-dash-btn" style="right: 45px;"><span class="icon-checkmark app-icon"></span></a>
+              <a href="#" id="checkSuccess" class="app-dash-btn" style="right: 45px;"><span class="icon-checkmark app-icon"></span></a>
             </div>
           </div>
         </div>
@@ -182,7 +217,7 @@
             </div> 
             <div class="ui-block-b"><span class="app-title"></span></div>
             <div class="ui-block-c">
-              <!--<a href="#" class="app-dash-btn" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a>-->
+              <!-- <a href="#" class="app-dash-btn" style="right: 0;"><span class="icon-drawer3 app-icon"></span></a> -->
               <!-- <a href="#panelMenuP" class="app-dash-btn" style="right: 45px;"><span class="icon-menu2 app-icon"></span></a> -->
             </div>
           </div>
@@ -193,8 +228,8 @@
             <br />
             <img id="getTake" src="" data-name="" data-tarea=""  width="285"/>
             <form id="sendingImage">
-            <input id="tituloImage" type="text" placeholder="Titulo" />
-            <textarea id="desImage" cols="2" rows="3" placeholder="Descripcion"></textarea>
+              <input id="tituloImage" type="text" placeholder="Titulo" />
+              <textarea id="desImage" cols="2" rows="3" placeholder="Descripcion"></textarea>
             </form>
             <a href="#" id="savepicture" class="ui-btn ui-btn-b">Guardar</a>
             <br />
